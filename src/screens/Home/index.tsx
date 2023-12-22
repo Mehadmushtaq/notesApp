@@ -25,7 +25,7 @@ function Home(): React.JSX.Element {
           </Pressable>
         </View>
         <View style={styles.Item}>
-          <Pressable onPress={() => navigation.navigate('AnimatedAPI')}>
+          <Pressable onPress={() => navigation.navigate('Animated')}>
             <Text>Animations</Text>
           </Pressable>
         </View>

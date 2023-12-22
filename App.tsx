@@ -7,7 +7,7 @@ import Chapter from './src/screens/Chapter';
 import Note from './src/screens/Note';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
-// import Note from './src/screens/Note';
+import Animation from './src/screens/Animation';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +23,7 @@ function App(): React.JSX.Element {
         <Stack.Screen name="Note" component={Note} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="Animated" component={Animation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
