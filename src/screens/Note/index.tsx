@@ -1,16 +1,21 @@
 import React from 'react';
-import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {Button} from 'react-native-paper';
 import Pdf from 'react-native-pdf';
 
 const Note = ({route}: {route: any}) => {
-  const {url} = route?.params;
+  const {name} = route?.params;
+  const url = `bundle-assets://${name}`;
 
   return (
     <View>
-      <Text>{url}</Text>
       <Pdf
         trustAllCerts={false}
-        source={{uri: url}}
+        // source={require('../../assets/pdf/Class-9th-Maths-Science-Group-Exercise-1.1.pdf')}
+        // source={{uri: url, cache: true}}
+        source={{
+          uri: url,
+        }}
         onLoadComplete={(numberOfPages, filePath) => {
           console.log(`Number of pages: ${numberOfPages}`);
         }}
@@ -25,19 +30,20 @@ const Note = ({route}: {route: any}) => {
         }}
         style={styles.pdf}
       />
+      <Button icon="download-outline">Download</Button>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   pdf: {
-    width: 300,
-    height: 300,
-    borderWidth: 1,
-    margin: 10,
-    // width: Dimensions.get('window').width,
-    // height: Dimensions.get('window').height,
-    flex: 1,
+    // width: 300,
+    // height: 300,
+    // borderWidth: 1,
+    // margin: 10,
+    width: Dimensions.get('window').width - 10,
+    height: Dimensions.get('window').height - 100,
+    // flex: 1,
   },
 });
 

@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {Button, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
+import {useTheme} from 'react-native-paper';
 
 function Home(): React.JSX.Element {
   const navigation = useNavigation<any>();
@@ -41,51 +42,53 @@ function Home(): React.JSX.Element {
     },
   ]);
 
-  const staticData: ICheckboxButton[] = [
-    {
-      id: 0,
-      fillColor: '#ff7473',
-      unfillColor: '#fbbfbb',
-      iconStyle: _iconStyle('#fbbfbb'),
-      iconImageStyle: styles.iconImageStyle,
-    },
-    {
-      id: 1,
-      fillColor: '#5567e9',
-      unfillColor: '#afb5f5',
-      iconStyle: _iconStyle('#afb5f5'),
-      iconImageStyle: styles.iconImageStyle,
-    },
-    {
-      id: 2,
-      fillColor: '#a98ae7',
-      unfillColor: '#cab6f4',
-      iconStyle: _iconStyle('#cab6f4'),
-      iconImageStyle: styles.iconImageStyle,
-    },
-    {
-      id: 3,
-      fillColor: '#fcb779',
-      unfillColor: '#ffd1a7',
-      iconStyle: _iconStyle('#ffd1a7'),
-      iconImageStyle: styles.iconImageStyle,
-    },
-    {
-      id: 4,
-      fillColor: '#2be055',
-      unfillColor: '#cbf2d5',
-      iconStyle: _iconStyle('#cbf2d5'),
-      iconImageStyle: styles.iconImageStyle,
-    },
-  ];
+  const theme = useTheme();
+
+  // const staticData: ICheckboxButton[] = [
+  //   {
+  //     id: 0,
+  //     fillColor: '#ff7473',
+  //     unfillColor: '#fbbfbb',
+  //     iconStyle: _iconStyle('#fbbfbb'),
+  //     iconImageStyle: styles.iconImageStyle,
+  //   },
+  //   {
+  //     id: 1,
+  //     fillColor: '#5567e9',
+  //     unfillColor: '#afb5f5',
+  //     iconStyle: _iconStyle('#afb5f5'),
+  //     iconImageStyle: styles.iconImageStyle,
+  //   },
+  //   {
+  //     id: 2,
+  //     fillColor: '#a98ae7',
+  //     unfillColor: '#cab6f4',
+  //     iconStyle: _iconStyle('#cab6f4'),
+  //     iconImageStyle: styles.iconImageStyle,
+  //   },
+  //   {
+  //     id: 3,
+  //     fillColor: '#fcb779',
+  //     unfillColor: '#ffd1a7',
+  //     iconStyle: _iconStyle('#ffd1a7'),
+  //     iconImageStyle: styles.iconImageStyle,
+  //   },
+  //   {
+  //     id: 4,
+  //     fillColor: '#2be055',
+  //     unfillColor: '#cbf2d5',
+  //     iconStyle: _iconStyle('#cbf2d5'),
+  //     iconImageStyle: styles.iconImageStyle,
+  //   },
+  // ];
 
   return (
     <View style={styles.Container}>
       <Text style={styles.Heading}> Learn Digitally</Text>
 
-      <View style={styles.dropDownStyle}>
-        <Text>Social Media</Text>
-        <DropDownPicker
+      {/* <View style={styles.dropDownStyle}>
+        <Text>Social Media</Text> */}
+      {/* <DropDownPicker
           placeholder={'---Select---'}
           // multiple={true}
           // min={0}
@@ -106,26 +109,26 @@ function Home(): React.JSX.Element {
           }}
           onSelectItem={item => {
             console.log(item.value);
-          }}
-        />
-      </View>
+          }} */}
+      {/* /> */}
+      {/* </View> */}
 
-      <View
+      {/* <View
         style={{
           marginVertical: 20,
-        }}>
-        <BouncyCheckboxGroup
+        }}> */}
+      {/* <BouncyCheckboxGroup
           data={staticData}
           onChange={(selectedItem: ICheckboxButton) => {
             console.log('SelectedItem: ', JSON.stringify(selectedItem));
-          }}
-        />
-      </View>
+          }} */}
+      {/* /> */}
+      {/* </View> */}
 
       <View style={styles.InnerContainer}>
         <View style={styles.Item}>
           <Pressable onPress={() => navigation.navigate('Chapter')}>
-            <Text>Chapters</Text>
+            <Text style={{color: theme.colors.primary}}>Chapters</Text>
           </Pressable>
         </View>
         <View style={styles.Item}>

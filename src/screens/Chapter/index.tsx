@@ -6,13 +6,19 @@ interface ChapterItemProps {
   title: string;
   chapter: string;
   url: string;
+  name: string;
 }
 
-const ChapterItem: React.FC<ChapterItemProps> = ({title, chapter, url}) => {
+const ChapterItem: React.FC<ChapterItemProps> = ({
+  title,
+  chapter,
+  url,
+  name,
+}) => {
   const navigation = useNavigation<any>();
   return (
     <View style={styles.chapters}>
-      <Pressable onPress={() => navigation.navigate('Note', {url})}>
+      <Pressable onPress={() => navigation.navigate('Note', {name})}>
         <Text style={styles.title}>{title}</Text>
         <Text>{chapter}</Text>
       </Pressable>
@@ -24,13 +30,14 @@ const Chapter: React.FC = ({navigation}: any) => {
   const chapters = [
     {
       chapter: 'Chapter 1',
-      title: 'Matrices and Determinants',
+      title: 'Matrices and Determinants - sample pdf',
       url: 'https://www.africau.edu/images/default/sample.pdf',
+      fileName: 'Document.pdf',
     },
     {
       chapter: 'Chapter 2',
-      title: 'Real and Complex Numbers',
-      url: 'https://file-examples.com/storage/fe6e60472c657f757a0e725/2017/10/file-example_PDF_1MB.pdf',
+      title: 'Real and Complex Numbers - firebase',
+      url: 'https://firebasestorage.googleapis.com/v0/b/notesapp-65035.appspot.com/o/10th%20Maths%20Chap1%20Ex%201.1.pdf?alt=media&token=cb36e3e9-4226-4e92-bf00-f9b701fac38f',
     },
     {
       chapter: 'Chapter 3',
@@ -63,6 +70,7 @@ const Chapter: React.FC = ({navigation}: any) => {
           title={chapter.title}
           chapter={chapter.chapter}
           url={chapter.url || ''}
+          name={chapter.fileName || ''}
         />
       ))}
     </ScrollView>
